@@ -1,0 +1,16 @@
+name: website
+id: ari:cloud:compass:81e7ee9d-1fb0-4307-803e-054742333e2c:component/9cbdb48c-f9bc-40d6-908c-f03428e02f4c/8220edc7-710c-423a-be98-143a9f0f2806
+description: The Catolabs Website
+configVersion: 1
+typeId: SERVICE
+fields:
+  tier: 4
+links:
+  - name: null
+    type: REPOSITORY
+    url: https://github.com/catoailabs/website
+relationships:
+  DEPENDS_ON: []
+labels:
+  - source:github
+customFields: null

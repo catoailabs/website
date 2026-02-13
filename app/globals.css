@@ -1,0 +1,313 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+@layer base {
+  /* ─── LIGHT MODE (frosted matte print feel) ─── */
+  :root {
+    /* Core Cato Labs palette — light */
+    --background: 210 20% 98%;
+    --foreground: 220 60% 5%;
+    --card: 210 25% 96%;
+    --card-foreground: 220 60% 5%;
+    --popover: 210 25% 96%;
+    --popover-foreground: 220 60% 5%;
+    --primary: 215 70% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 18% 92%;
+    --secondary-foreground: 220 50% 12%;
+    --muted: 210 14% 90%;
+    --muted-foreground: 215 15% 42%;
+    --accent: 215 70% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 215 18% 86%;
+    --input: 215 18% 86%;
+    --ring: 215 70% 50%;
+
+    /* Charts */
+    --chart-1: 215 70% 50%;
+    --chart-2: 195 55% 42%;
+    --chart-3: 200 38% 30%;
+    --chart-4: 210 50% 58%;
+    --chart-5: 220 45% 65%;
+
+    --radius: 0.5rem;
+
+    /* Cato custom tokens */
+    --ink: 210 20% 98%;
+    --deep-navy: 210 25% 94%;
+    --frost-white: 220 60% 5%;
+    --mist: 215 15% 42%;
+    --steel-blue: 215 100% 71%;
+    --ice-blue: 205 100% 87%;
+    --glass-border: 0 0% 100% / 0.12;
+    --glow-shadow: 215 100% 71% / 0.08;
+
+    /* Sidebar */
+    --sidebar-background: 210 20% 96%;
+    --sidebar-foreground: 220 50% 12%;
+    --sidebar-primary: 215 70% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 18% 92%;
+    --sidebar-accent-foreground: 220 50% 12%;
+    --sidebar-border: 215 18% 86%;
+    --sidebar-ring: 215 70% 50%;
+  }
+
+  /* ─── DARK MODE (cinematic deep space — Cato signature) ─── */
+  .dark {
+    --background: 225 60% 3%;
+    --foreground: 205 80% 97%;
+    --card: 220 50% 7%;
+    --card-foreground: 205 80% 97%;
+    --popover: 220 50% 7%;
+    --popover-foreground: 205 80% 97%;
+    --primary: 215 100% 71%;
+    --primary-foreground: 225 60% 3%;
+    --secondary: 220 50% 7%;
+    --secondary-foreground: 205 80% 97%;
+    --muted: 220 30% 12%;
+    --muted-foreground: 210 22% 72%;
+    --accent: 205 100% 87%;
+    --accent-foreground: 225 60% 3%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 20% 16%;
+    --input: 220 20% 16%;
+    --ring: 215 100% 71%;
+
+    /* Charts */
+    --chart-1: 215 100% 71%;
+    --chart-2: 195 60% 50%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 205 100% 87%;
+    --chart-5: 220 70% 60%;
+
+    /* Cato custom tokens — dark */
+    --ink: 225 60% 3%;
+    --deep-navy: 220 50% 7%;
+    --frost-white: 205 80% 97%;
+    --mist: 210 22% 72%;
+    --steel-blue: 215 100% 71%;
+    --ice-blue: 205 100% 87%;
+    --glass-border: 0 0% 100% / 0.12;
+    --glow-shadow: 215 100% 71% / 0.15;
+
+    /* Sidebar */
+    --sidebar-background: 220 50% 5%;
+    --sidebar-foreground: 205 80% 97%;
+    --sidebar-primary: 215 100% 71%;
+    --sidebar-primary-foreground: 225 60% 3%;
+    --sidebar-accent: 220 30% 12%;
+    --sidebar-accent-foreground: 205 80% 97%;
+    --sidebar-border: 220 20% 16%;
+    --sidebar-ring: 215 100% 71%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Selection color */
+  ::selection {
+    background: hsl(var(--steel-blue) / 0.3);
+    color: hsl(var(--frost-white));
+  }
+
+  /* Smooth focus outlines */
+  :focus-visible {
+    outline: 2px solid hsl(var(--steel-blue));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* ─── Cato Typography Classes ─── */
+@layer components {
+  .heading-hero {
+    font-size: clamp(3.5rem, 7vw + 0.75rem, 8.75rem);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+  }
+
+  .heading-section {
+    font-size: clamp(2.5rem, 3.4vw + 0.625rem, 4.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    font-weight: 600;
+  }
+
+  .heading-subsection {
+    font-size: clamp(1.5rem, 2vw + 0.5rem, 2.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+
+  .body-large {
+    font-size: clamp(1rem, 0.5vw + 0.875rem, 1.25rem);
+    line-height: 1.6;
+  }
+
+  .micro-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+    color: hsl(var(--mist));
+  }
+
+  /* Glass card surface */
+  .glass-surface {
+    background: hsl(var(--deep-navy) / 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--glass-border));
+    border-radius: 1.5rem;
+  }
+
+  /* Glow accent for cards/buttons */
+  .glow-accent {
+    box-shadow:
+      0 0 20px hsl(var(--glow-shadow)),
+      0 0 60px hsl(var(--glow-shadow));
+  }
+
+  /* Halo radial gradient background */
+  .halo-bg {
+    background: radial-gradient(
+      ellipse at 50% 0%,
+      hsl(var(--ice-blue) / 0.08) 0%,
+      transparent 65%
+    );
+  }
+
+  /* Depth gradient */
+  .depth-gradient {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--deep-navy)) 0%,
+      hsl(var(--ink)) 100%
+    );
+  }
+
+  /* Frost gradient */
+  .frost-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--ice-blue) / 0.15) 0%,
+      hsl(var(--steel-blue) / 0.08) 100%
+    );
+  }
+
+  /* Content container */
+  .container-site {
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-site {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-site {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
+
+  /* Section spacing */
+  .section-padding {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
+  }
+}
+
+/* ─── Animation Keyframes ─── */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 20px hsl(var(--steel-blue) / 0.15),
+      0 0 60px hsl(var(--steel-blue) / 0.05);
+  }
+  50% {
+    box-shadow:
+      0 0 30px hsl(var(--steel-blue) / 0.25),
+      0 0 80px hsl(var(--steel-blue) / 0.1);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
